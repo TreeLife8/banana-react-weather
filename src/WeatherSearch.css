@@ -1,2 +1,22 @@
 .WeatherSearch {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: white;
+  border-radius: 6px;
+  max-width: 400px;
+  margin: 15px auto;
+  border: rgba(135, 135, 135, 0.5) 0.5px solid;
+  box-shadow: 3px 3px 10px rgba(102, 102, 102, 0.4);
+  color: rgb(135, 135, 135);
+  padding: 10px 20px 20px;
+}
+.WeatherSearch .form-search {
+  padding: 2px;
+}
+.WeatherSearch .btn-control {
+  border: rgba(226, 212, 218) 0.5px solid;
+  font-size: 14px;
+  color: rgb(70, 70, 70);
+}
+.WeatherSearch .form-control {
+  font-size: 14px;
 }
