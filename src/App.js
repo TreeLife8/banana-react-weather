@@ -9,8 +9,17 @@ export default function App() {
       </header>
       <footer>
         This was coded by{" "}
-        <a href="https://www.linkedin.com/in/regina-maher-ecs/">Regina Maher</a>{" "}
-        and is <a href="https://github.com/TreeLife8">open-source on GitHub</a>
+        <a
+          href="https://www.linkedin.com/in/regina-maher-ecs/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Regina Maher
+        </a>{" "}
+        and is{" "}
+        <a href="https://github.com/TreeLife8" target="_blank" rel="noreferrer">
+          open-source on GitHub
+        </a>
       </footer>
     </div>
   );
