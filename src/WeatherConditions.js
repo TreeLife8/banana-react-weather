@@ -42,7 +42,7 @@ export default function WeatherConditions(props) {
         <label className="btn btn-secondary" for="btnradio3">
           WINDSPEED
           <div className="windspeed" id="windspeed">
-            {props.data.wind} km/h
+            {props.data.wind} {props.speedUnit}
           </div>
         </label>
       </div>

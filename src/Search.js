@@ -17,6 +17,7 @@ export default function Search(props) {
     metric: "notActive",
     imperial: "isActive",
   });
+  const [speedUnit, setSpeedUnit] = useState("km/h");
 
   function search() {
     let apiKey = `3fb188379e6ffcf616e7cdbd010c6434`;
@@ -36,14 +37,22 @@ export default function Search(props) {
   function convertToFarhen(event) {
     event.preventDefault();
     setUnit("imperial");
+    setClassName({
+      metric: "isActive",
+      imperial: "notActive",
+    });
     search();
-    setClassName({ metric: "isActive", imperial: "notActive" });
+    setSpeedUnit("mph");
   }
   function convertToCelcius(event) {
     event.preventDefault();
     setUnit("metric");
+    setClassName({
+      metric: "notActive",
+      imperial: "isActive",
+    });
     search();
-    setClassName({ metric: "notActive", imperial: "isActive" });
+    setSpeedUnit("km/h");
   }
 
   function handleResponse(response) {
@@ -120,7 +129,7 @@ export default function Search(props) {
           </div>
         </div>
         <div className="weatherConditions">
-          <WeatherConditions data={weatherData} />
+          <WeatherConditions data={weatherData} speedUnit={speedUnit} />
         </div>
         <hr />
       </div>
