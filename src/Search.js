@@ -6,14 +6,21 @@ import Loader from "react-loader-spinner";
 import Weather from "./Weather";
 import WeatherIcon from "./WeatherIcon";
 import MaxMinTemps from "./MaxMinTemps";
+import WeatherConditions from "./WeatherConditions";
+import Temperature from "./Temperature";
 
 export default function Search(props) {
   const [weatherData, setWeatherDate] = useState({ ready: false });
   const [city, setCity] = useState(props.defaultCity);
+  const [unit, setUnit] = useState("metric");
+  const [className, setClassName] = useState({
+    metric: "notActive",
+    imperial: "isActive",
+  });
 
   function search() {
     let apiKey = `3fb188379e6ffcf616e7cdbd010c6434`;
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unit}`;
     axios.get(apiUrl).then(handleResponse);
   }
 
@@ -24,6 +31,19 @@ export default function Search(props) {
 
   function updateCity(event) {
     setCity(event.target.value);
+  }
+
+  function convertToFarhen(event) {
+    event.preventDefault();
+    setUnit("imperial");
+    search();
+    setClassName({ metric: "isActive", imperial: "notActive" });
+  }
+  function convertToCelcius(event) {
+    event.preventDefault();
+    setUnit("metric");
+    search();
+    setClassName({ metric: "notActive", imperial: "isActive" });
   }
 
   function handleResponse(response) {
@@ -38,7 +58,6 @@ export default function Search(props) {
       date: new Date(response.data.dt * 1000),
       maxTemp: Math.round(response.data.main.temp_max),
       minTemp: Math.round(response.data.main.temp_min),
-      // icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
       icon: response.data.weather[0].icon,
     });
   }
@@ -81,6 +100,28 @@ export default function Search(props) {
           </div>
         </div>
         <Weather weatherData={weatherData} />
+        <div className="tempUnits">
+          <div className="temp">
+            <Temperature temperature={weatherData.temperature} />
+          </div>
+          <div className="units">
+            °
+            <a href="/" className={className.metric} onClick={convertToCelcius}>
+              C
+            </a>{" "}
+            |{" "}
+            <a
+              href="/"
+              className={className.imperial}
+              onClick={convertToFarhen}
+            >
+              °F
+            </a>
+          </div>
+        </div>
+        <div className="weatherConditions">
+          <WeatherConditions data={weatherData} />
+        </div>
         <hr />
       </div>
     );

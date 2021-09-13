@@ -1,0 +1,9 @@
+.WeatherConditions .btn-secondary {
+  display: block;
+  margin: 10px auto;
+  font-weight: 500;
+  font-size: 13px;
+  padding: 10px 20px;
+  background-color: rgb(160, 160, 160);
+  font-family: "Poppins", sans-serif;
+}

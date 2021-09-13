@@ -11,15 +11,16 @@
 }
 .Search .form-search {
   padding: 2px;
+  font-family: "Poppins", sans-serif;
 }
 .Search .btn-control {
+  font-size: 11px;
   border: rgba(226, 212, 218) 0.5px solid;
-  font-size: 14px;
   color: rgb(70, 70, 70);
   box-shadow: 2px 2px 8px rgba(135, 135, 135, 0.2);
 }
 .Search .form-control {
-  font-size: 14px;
+  font-size: 11px;
 }
 .Search .btn-primary {
   color: white;
@@ -29,4 +30,27 @@
 }
 .Search .search {
   margin-top: 3px;
+}
+.Search .units {
+  display: inline-block;
+  font-size: 10px;
+  position: relative;
+  top: -28px;
+  padding-left: 5px;
+}
+.Search .temp {
+  display: inline-block;
+}
+.Search .notActive {
+  color: rgb(201, 201, 201);
+  text-decoration: none;
+}
+.Search .tempUnits {
+  text-align: center;
+}
+.Search .isActive {
+  color: rgb(133, 182, 255);
+}
+.Search .weatherConditions {
+  text-align: center;
 }

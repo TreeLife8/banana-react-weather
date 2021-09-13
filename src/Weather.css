@@ -9,29 +9,3 @@
   text-transform: capitalize;
   font-size: 14px;
 }
-.Weather h2 {
-  font-size: 50px;
-}
-.Weather .units {
-  display: inline-block;
-  font-size: 10px;
-  position: relative;
-  top: -28px;
-  padding-left: 5px;
-}
-.Weather H2 {
-  display: inline-block;
-}
-.Weather a {
-  text-decoration: none;
-  color: rgb(135, 135, 135);
-}
-.Weather .btn-secondary {
-  display: block;
-  margin-top: 10px;
-  font-weight: 500;
-  font-size: 11px;
-  padding: 10px 20px;
-  background-color: rgb(160, 160, 160);
-  color: b;
-}
