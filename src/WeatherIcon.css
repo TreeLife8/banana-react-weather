@@ -1,0 +1,6 @@
+.WeatherIcon img {
+  position: relative;
+  top: -25px;
+  max-width: 90px;
+  right: -10px;
+}

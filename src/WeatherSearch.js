@@ -4,8 +4,9 @@ import DateTime from "./DateTime";
 import axios from "axios";
 import Loader from "react-loader-spinner";
 import Weather from "./Weather";
+import WeatherIcon from "./WeatherIcon";
 
-export default function WeatherSearch() {
+export default function WeatherSearch(props) {
   const [weatherData, setWeatherDate] = useState({ ready: false });
 
   function handleResponse(response) {
@@ -41,11 +42,8 @@ export default function WeatherSearch() {
             <div className="col-3 form-search">
               <button className="btn btn-control">Current</button>
             </div>
-            <div className="col-2">
-              <img
-                src="https://ssl.gstatic.com/onebox/weather/48/partly_cloudy.png"
-                alt="weather icon"
-              />
+            <div className="col-2 clearfix">
+              <WeatherIcon weatherData={weatherData} />
             </div>
           </div>
         </form>
@@ -55,13 +53,12 @@ export default function WeatherSearch() {
           </div>
           <div className="col-6"></div>
         </div>
-        <Weather city={weatherData.city} />
+        <Weather weatherData={weatherData} />
       </div>
     );
   } else {
     let apiKey = `3fb188379e6ffcf616e7cdbd010c6434`;
-    let city = `sydney`;
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.city}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
     return (
       <div className="container row">

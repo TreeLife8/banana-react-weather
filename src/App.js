@@ -5,7 +5,7 @@ export default function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <WeatherSearch />
+        <WeatherSearch city="Sydney" />
       </header>
       <footer>
         This was coded by{" "}
