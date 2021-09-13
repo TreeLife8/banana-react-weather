@@ -1,0 +1,10 @@
+.DateTime li {
+  list-style: none;
+  font-size: 15px;
+}
+.DateTime ul {
+  position: relative;
+  top: -15px;
+  left: -15px;
+  padding-left: 10px;
+}
