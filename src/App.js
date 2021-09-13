@@ -1,11 +1,11 @@
 import "./App.css";
-import WeatherSearch from "./WeatherSearch";
+import Search from "./Search";
 
 export default function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <WeatherSearch city="Sydney" />
+        <Search defaultCity="Sydney" />
       </header>
       <footer>
         This was coded by{" "}

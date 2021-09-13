@@ -1,13 +1,10 @@
-.DateTime ul {
+.MaxMinTemps ul {
+  text-align: right;
   position: relative;
   top: -25px;
   left: -15px;
-  padding-left: 10px;
 }
-.DateTime li {
+.MaxMinTemps li {
   list-style: none;
   font-size: 11px;
-}
-.DateTime .dayTime {
-  font-size: 12px;
 }

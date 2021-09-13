@@ -1,4 +1,4 @@
-.WeatherSearch {
+.Search {
   font-family: Arial, Helvetica, sans-serif;
   background-color: white;
   border-radius: 6px;
@@ -9,14 +9,24 @@
   color: rgb(135, 135, 135);
   padding: 10px 20px 20px;
 }
-.WeatherSearch .form-search {
+.Search .form-search {
   padding: 2px;
 }
-.WeatherSearch .btn-control {
+.Search .btn-control {
   border: rgba(226, 212, 218) 0.5px solid;
   font-size: 14px;
   color: rgb(70, 70, 70);
+  box-shadow: 2px 2px 8px rgba(135, 135, 135, 0.2);
 }
-.WeatherSearch .form-control {
+.Search .form-control {
   font-size: 14px;
+}
+.Search .btn-primary {
+  color: white;
+}
+.Search .maxMinTemps {
+  padding-right: 0;
+}
+.Search .search {
+  margin-top: 3px;
 }
