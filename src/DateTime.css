@@ -1,6 +1,6 @@
 .DateTime ul {
   position: relative;
-  top: -25px;
+  margin-top: 5px;
   left: -15px;
   padding-left: 10px;
 }

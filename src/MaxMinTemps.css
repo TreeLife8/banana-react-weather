@@ -1,7 +1,7 @@
 .MaxMinTemps ul {
   text-align: right;
   position: relative;
-  top: -25px;
+  margin-top: 5px;
   left: -15px;
 }
 .MaxMinTemps li {

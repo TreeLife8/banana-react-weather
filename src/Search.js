@@ -38,7 +38,8 @@ export default function Search(props) {
       date: new Date(response.data.dt * 1000),
       maxTemp: Math.round(response.data.main.temp_max),
       minTemp: Math.round(response.data.main.temp_min),
-      icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+      // icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+      icon: response.data.weather[0].icon,
     });
   }
   if (weatherData.ready) {
@@ -68,7 +69,7 @@ export default function Search(props) {
             <button className="btn btn-control">Current</button>
           </div>
           <div className="col-2 clearfix">
-            <WeatherIcon weatherData={weatherData} />
+            <WeatherIcon code={weatherData.icon} />
           </div>
         </div>
         <div className="row">

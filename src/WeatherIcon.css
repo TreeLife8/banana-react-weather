@@ -1,6 +1,5 @@
-.WeatherIcon img {
+.WeatherIcon canvas {
   position: relative;
-  top: -25px;
   max-width: 90px;
-  right: -15px;
+  right: -5px;
 }
