@@ -17,7 +17,11 @@ export default function App() {
           Regina Maher
         </a>{" "}
         and is{" "}
-        <a href="https://github.com/TreeLife8" target="_blank" rel="noreferrer">
+        <a
+          href="https://github.com/TreeLife8/banana-react-weather"
+          target="_blank"
+          rel="noreferrer"
+        >
           open-source on GitHub
         </a>
       </footer>
