@@ -3,3 +3,8 @@
   max-width: 90px;
   right: -5px;
 }
+
+.WeatherForcast-icon canvas {
+  position: relative;
+  right: 3px;
+}

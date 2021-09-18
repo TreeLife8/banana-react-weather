@@ -1,0 +1,13 @@
+.WeatherForcast {
+  text-align: center;
+  font-size: 14px;
+}
+.WeatherForcast .day {
+  text-transform: uppercase;
+  margin-bottom: 5x;
+}
+
+.WeatherForcast .min-temp {
+  opacity: 0.8;
+  margin-left: 5px;
+}

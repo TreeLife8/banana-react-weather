@@ -8,6 +8,7 @@ import WeatherIcon from "./WeatherIcon";
 import MaxMinTemps from "./MaxMinTemps";
 import WeatherConditions from "./WeatherConditions";
 import Temperature from "./Temperature";
+import WeatherForcast from "./WeatherForcast";
 
 export default function Search(props) {
   const [weatherData, setWeatherDate] = useState({ ready: false });
@@ -19,7 +20,7 @@ export default function Search(props) {
   const [speedUnit, setSpeedUnit] = useState("km/h");
 
   function search(unit) {
-    let apiKey = `3fb188379e6ffcf616e7cdbd010c6434`;
+    let apiKey = `2f5ed0987c11d8af0a71b4472673fde7`;
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unit}`;
     axios.get(apiUrl).then(handleResponse);
   }
@@ -67,6 +68,8 @@ export default function Search(props) {
       maxTemp: Math.round(response.data.main.temp_max),
       minTemp: Math.round(response.data.main.temp_min),
       icon: response.data.weather[0].icon,
+      lat: response.data.coord.lat,
+      lon: response.data.coord.lon,
     });
   }
   if (weatherData.ready) {
@@ -131,6 +134,11 @@ export default function Search(props) {
           <WeatherConditions data={weatherData} speedUnit={speedUnit} />
         </div>
         <hr />
+        <WeatherForcast
+          lat={weatherData.lat}
+          lon={weatherData.lon}
+          // unit={"unit"}
+        />
       </div>
     );
   } else {

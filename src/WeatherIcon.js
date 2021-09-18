@@ -50,6 +50,7 @@ export default function WeatherIcon(props) {
         icon={codeIonMapping[props.code]}
         color={codeColorMapping[props.code]}
         animate={true}
+        size={props.size}
       />
     </div>
   );
