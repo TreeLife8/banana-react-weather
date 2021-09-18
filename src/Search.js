@@ -71,8 +71,7 @@ export default function Search(props) {
       maxTemp: Math.round(response.data.main.temp_max),
       minTemp: Math.round(response.data.main.temp_min),
       icon: response.data.weather[0].icon,
-      lat: response.data.coord.lat,
-      lon: response.data.coord.lon,
+      coord: response.data.coord,
     });
   }
   if (weatherData.ready) {
@@ -137,11 +136,7 @@ export default function Search(props) {
           <WeatherConditions data={weatherData} unit={units.speed} />
         </div>
         <hr />
-        <WeatherForcast
-          lat={weatherData.lat}
-          lon={weatherData.lon}
-          unit={"metric"}
-        />
+        <WeatherForcast coord={weatherData.coord} unit={"metric"} />
       </div>
     );
   } else {
