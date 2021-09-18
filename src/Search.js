@@ -26,7 +26,7 @@ export default function Search(props) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    search();
+    search("metric");
   }
 
   function updateCity(event) {
@@ -59,7 +59,7 @@ export default function Search(props) {
       ready: true,
       city: response.data.name,
       temperature: Math.round(response.data.main.temp),
-      wind: response.data.wind.speed,
+      wind: Math.round(response.data.wind.speed),
       feelsLike: Math.round(response.data.main.feels_like),
       humidity: response.data.main.humidity,
       description: response.data.weather[0].description,
@@ -137,7 +137,7 @@ export default function Search(props) {
     search("metric");
     return (
       <div className="container row">
-        <div className="col-3"></div>
+        <div className="col-6"></div>
         <div className="col-4">
           <Loader
             type="Puff"
@@ -147,7 +147,6 @@ export default function Search(props) {
             timeout={4000}
           />
         </div>
-        <div className="col-3"></div>
       </div>
     );
   }
