@@ -1,18 +1,21 @@
 import React, { useState } from "react";
 import "./WeatherForcast.css";
 import WeatherIcon from "./WeatherIcon";
+import ForcastDay from "./ForcastDay";
 import axios from "axios";
 
 export default function WeatherForcast(props) {
   const [forcastData, setForcastData] = useState({ ready: false });
-  // let days = [SUN, MON, TUE, WED, THU, FRI, SAT]
+
   function handleResponse(response) {
     setForcastData({
       ready: true,
+      timestamp: response.data.daily[1].dt,
       maxTemp: Math.round(response.data.daily[1].temp.max),
       minTemp: Math.round(response.data.daily[1].temp.min),
       icon: response.data.daily[1].weather[0].icon,
     });
+    console.log(response.data.daily[1]);
   }
   function search() {
     let apiKey = "2f5ed0987c11d8af0a71b4472673fde7";
@@ -24,7 +27,9 @@ export default function WeatherForcast(props) {
       <div className="WeatherForcast">
         <div className="row">
           <div className="col-2">
-            <div className="day">Thu</div>
+            <div className="day">
+              <ForcastDay timestamp={forcastData.timestamp} />
+            </div>
             <div className="WeatherForcast-icon">
               <WeatherIcon code={forcastData.icon} size={35} />
             </div>

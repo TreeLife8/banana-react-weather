@@ -119,17 +119,17 @@ export default function Search(props) {
             <Temperature temperature={weatherData.temperature} />
           </div>
           <div className="units">
-            °
+            °{" "}
             <a href="/" className={unitClass.metric} onClick={convertToCelcius}>
               C
             </a>{" "}
-            |{" "}
+            | °{" "}
             <a
               href="/"
               className={unitClass.imperial}
               onClick={convertToFarhen}
             >
-              °F
+              F
             </a>
           </div>
         </div>

@@ -4,9 +4,10 @@
 }
 .WeatherForcast .day {
   text-transform: uppercase;
-  margin-bottom: 5x;
+  margin-bottom: 5px;
 }
 .WeatherForcast .temperatures {
+  margin-top: 2px;
   font-size: 12px;
 }
 

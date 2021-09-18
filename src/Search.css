@@ -42,13 +42,16 @@
   display: inline-block;
 }
 .Search .notActive {
-  color: rgb(201, 201, 201);
+  color: rgb(121, 121, 121);
   text-decoration: none;
+  font-weight: 600;
 }
 .Search .tempUnits {
   text-align: center;
 }
 .Search .isActive {
+  text-decoration: none;
+  font-weight: 500;
   color: rgb(133, 182, 255);
 }
 .Search .weatherConditions {
