@@ -7,4 +7,5 @@
 .WeatherForcast-icon canvas {
   position: relative;
   right: 3px;
+  opacity: 0.5;
 }

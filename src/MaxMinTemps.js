@@ -5,8 +5,12 @@ export default function MaxMinTemps(props) {
   return (
     <div className="MaxMinTemps">
       <ul>
-        <li>Max temp: {props.weatherData.maxTemp}°C</li>
-        <li>Min temp: {props.weatherData.minTemp}°C</li>
+        <li>
+          Max temp: {props.weatherData.maxTemp}°{props.unit}
+        </li>
+        <li>
+          Min temp: {props.weatherData.minTemp}°{props.unit}
+        </li>
       </ul>
     </div>
   );

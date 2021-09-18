@@ -5,12 +5,13 @@ import axios from "axios";
 
 export default function WeatherForcast(props) {
   const [forcastData, setForcastData] = useState({ ready: false });
+  // let days = [SUN, MON, TUE, WED, THU, FRI, SAT]
   function handleResponse(response) {
-    console.log(response.data.daily[0].temp.max);
     setForcastData({
       ready: true,
-      maxTemp: Math.round(response.data.daily[0].temp.max),
-      minTemp: Math.round(response.data.daily[0].temp.min),
+      maxTemp: Math.round(response.data.daily[1].temp.max),
+      minTemp: Math.round(response.data.daily[1].temp.min),
+      icon: response.data.daily[1].weather[0].icon,
     });
   }
   function search() {
@@ -25,10 +26,10 @@ export default function WeatherForcast(props) {
           <div className="col-2">
             <div className="day">Thu</div>
             <div className="WeatherForcast-icon">
-              <WeatherIcon code="01d" size={35} />
+              <WeatherIcon code={forcastData.icon} size={35} />
             </div>
             <div className="temperatures">
-              <span className="max-temp">{forcastData.maxTemp}</span>°
+              <span className="max-temp">{forcastData.maxTemp}°</span>
               <span className="min-temp">{forcastData.minTemp}°</span>
             </div>
           </div>

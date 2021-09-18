@@ -13,11 +13,12 @@ import WeatherForcast from "./WeatherForcast";
 export default function Search(props) {
   const [weatherData, setWeatherDate] = useState({ ready: false });
   const [city, setCity] = useState(props.defaultCity);
-  const [className, setClassName] = useState({
+  const [unitClass, setUnitClass] = useState({
     metric: "notActive",
     imperial: "isActive",
+    // unit: "metric",
   });
-  const [speedUnit, setSpeedUnit] = useState("km/h");
+  const [units, setUnits] = useState({ speed: "km/h", temp: "C" });
 
   function search(unit) {
     let apiKey = `2f5ed0987c11d8af0a71b4472673fde7`;
@@ -37,22 +38,24 @@ export default function Search(props) {
   function convertToFarhen(event) {
     event.preventDefault();
     let unit = "imperial";
-    setClassName({
+    setUnitClass({
       metric: "isActive",
       imperial: "notActive",
+      // unit: "imperial",
     });
     search(unit);
-    setSpeedUnit("mph");
+    setUnits({ speed: "mph", temp: "F" });
   }
   function convertToCelcius(event) {
     event.preventDefault();
     let unit = "metric";
-    setClassName({
+    setUnitClass({
       metric: "notActive",
       imperial: "isActive",
+      // unit: "metric",
     });
     search(unit);
-    setSpeedUnit("km/h");
+    setUnits({ speed: "km/h", temp: "C" });
   }
 
   function handleResponse(response) {
@@ -107,7 +110,7 @@ export default function Search(props) {
             <DateTime date={weatherData.date} />
           </div>
           <div className="col-6 maxMinTemps">
-            <MaxMinTemps weatherData={weatherData} />
+            <MaxMinTemps weatherData={weatherData} unit={units.temp} />
           </div>
         </div>
         <Weather weatherData={weatherData} />
@@ -117,13 +120,13 @@ export default function Search(props) {
           </div>
           <div className="units">
             °
-            <a href="/" className={className.metric} onClick={convertToCelcius}>
+            <a href="/" className={unitClass.metric} onClick={convertToCelcius}>
               C
             </a>{" "}
             |{" "}
             <a
               href="/"
-              className={className.imperial}
+              className={unitClass.imperial}
               onClick={convertToFarhen}
             >
               °F
@@ -131,7 +134,7 @@ export default function Search(props) {
           </div>
         </div>
         <div className="weatherConditions">
-          <WeatherConditions data={weatherData} speedUnit={speedUnit} />
+          <WeatherConditions data={weatherData} unit={units.speed} />
         </div>
         <hr />
         <WeatherForcast
