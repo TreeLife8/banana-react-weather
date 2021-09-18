@@ -6,8 +6,11 @@
   text-transform: uppercase;
   margin-bottom: 5x;
 }
+.WeatherForcast .temperatures {
+  font-size: 12px;
+}
 
 .WeatherForcast .min-temp {
   opacity: 0.8;
-  margin-left: 5px;
+  margin-left: 2px;
 }

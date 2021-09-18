@@ -8,7 +8,7 @@ import WeatherIcon from "./WeatherIcon";
 import MaxMinTemps from "./MaxMinTemps";
 import WeatherConditions from "./WeatherConditions";
 import Temperature from "./Temperature";
-// import WeatherForcast from "./WeatherForcast";
+import WeatherForcast from "./WeatherForcast";
 
 export default function Search(props) {
   const [weatherData, setWeatherDate] = useState({ ready: false });
@@ -134,11 +134,11 @@ export default function Search(props) {
           <WeatherConditions data={weatherData} speedUnit={speedUnit} />
         </div>
         <hr />
-        {/* <WeatherForcast
+        <WeatherForcast
           lat={weatherData.lat}
           lon={weatherData.lon}
-          // unit={"unit"}
-        /> */}
+          unit={"metric"}
+        />
       </div>
     );
   } else {
