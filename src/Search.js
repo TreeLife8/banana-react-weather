@@ -12,14 +12,13 @@ import Temperature from "./Temperature";
 export default function Search(props) {
   const [weatherData, setWeatherDate] = useState({ ready: false });
   const [city, setCity] = useState(props.defaultCity);
-  const [unit, setUnit] = useState("metric");
   const [className, setClassName] = useState({
     metric: "notActive",
     imperial: "isActive",
   });
   const [speedUnit, setSpeedUnit] = useState("km/h");
 
-  function search() {
+  function search(unit) {
     let apiKey = `3fb188379e6ffcf616e7cdbd010c6434`;
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unit}`;
     axios.get(apiUrl).then(handleResponse);
@@ -36,22 +35,22 @@ export default function Search(props) {
 
   function convertToFarhen(event) {
     event.preventDefault();
-    setUnit("imperial");
+    let unit = "imperial";
     setClassName({
       metric: "isActive",
       imperial: "notActive",
     });
-    search();
+    search(unit);
     setSpeedUnit("mph");
   }
   function convertToCelcius(event) {
     event.preventDefault();
-    setUnit("metric");
+    let unit = "metric";
     setClassName({
       metric: "notActive",
       imperial: "isActive",
     });
-    search();
+    search(unit);
     setSpeedUnit("km/h");
   }
 
@@ -135,7 +134,7 @@ export default function Search(props) {
       </div>
     );
   } else {
-    search();
+    search("metric");
     return (
       <div className="container row">
         <div className="col-3"></div>
