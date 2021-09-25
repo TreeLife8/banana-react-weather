@@ -26,6 +26,11 @@ export default function Search(props) {
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unit}`;
     axios.get(apiUrl).then(handleResponse);
   }
+  function searchUnitChange(unit) {
+    let apiKey = `2f5ed0987c11d8af0a71b4472673fde7`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${weatherData.city}&appid=${apiKey}&units=${unit}`;
+    axios.get(apiUrl).then(handleResponse);
+  }
   function searchCurrentLocation(event) {
     event.preventDefault();
     navigator.geolocation.getCurrentPosition(currentPosition);
@@ -35,7 +40,8 @@ export default function Search(props) {
       lat: position.coords.latitude,
       lon: position.coords.longitude,
     });
-    searchCurrentWeather(coord.lat, coord.lon);
+    searchCurrentWeather();
+    console.log(coord.lat, coord.lon);
   }
 
   function searchCurrentWeather() {
@@ -62,7 +68,7 @@ export default function Search(props) {
       imperial: "notActive",
       unit: "imperial",
     });
-    search(unit);
+    searchUnitChange(unit);
     setUnits({ speed: "mph", temp: "F" });
   }
   function convertToCelcius(event) {
@@ -73,7 +79,7 @@ export default function Search(props) {
       imperial: "isActive",
       unit: "metric",
     });
-    search(unit);
+    searchUnitChange(unit);
     setUnits({ speed: "km/h", temp: "C" });
   }
 
