@@ -19,10 +19,29 @@ export default function Search(props) {
     unit: "metric",
   });
   const [units, setUnits] = useState({ speed: "km/h", temp: "C" });
+  const [coord, setCoord] = useState(null);
 
   function search(unit) {
     let apiKey = `2f5ed0987c11d8af0a71b4472673fde7`;
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unit}`;
+    axios.get(apiUrl).then(handleResponse);
+  }
+  function searchCurrentLocation(event) {
+    event.preventDefault();
+    navigator.geolocation.getCurrentPosition(currentPosition);
+  }
+  function currentPosition(position) {
+    setCoord({
+      lat: position.coords.latitude,
+      lon: position.coords.longitude,
+    });
+    searchCurrentWeather(coord.lat, coord.lon);
+  }
+
+  function searchCurrentWeather() {
+    let unit = `metric`;
+    let apiKey = `3fb188379e6ffcf616e7cdbd010c6434`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${coord.lat}&lon=${coord.lon}&units=${unit}&appid=${apiKey}`;
     axios.get(apiUrl).then(handleResponse);
   }
 
@@ -98,7 +117,9 @@ export default function Search(props) {
             </div>
           </form>
           <div className="col-3 form-search">
-            <button className="btn btn-control">Current</button>
+            <a href="/" className="current-btn" onClick={searchCurrentLocation}>
+              <button className="btn btn-control">Current</button>
+            </a>
           </div>
           <div className="col-2 clearfix">
             <WeatherIcon code={weatherData.icon} />
