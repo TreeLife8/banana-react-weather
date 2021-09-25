@@ -16,7 +16,7 @@ export default function Search(props) {
   const [unitClass, setUnitClass] = useState({
     metric: "notActive",
     imperial: "isActive",
-    // unit: "metric",
+    unit: "metric",
   });
   const [units, setUnits] = useState({ speed: "km/h", temp: "C" });
 
@@ -41,7 +41,7 @@ export default function Search(props) {
     setUnitClass({
       metric: "isActive",
       imperial: "notActive",
-      // unit: "imperial",
+      unit: "imperial",
     });
     search(unit);
     setUnits({ speed: "mph", temp: "F" });
@@ -52,7 +52,7 @@ export default function Search(props) {
     setUnitClass({
       metric: "notActive",
       imperial: "isActive",
-      // unit: "metric",
+      unit: "metric",
     });
     search(unit);
     setUnits({ speed: "km/h", temp: "C" });
@@ -136,7 +136,7 @@ export default function Search(props) {
           <WeatherConditions data={weatherData} unit={units.speed} />
         </div>
         <hr />
-        <WeatherForcast coord={weatherData.coord} unit={"metric"} />
+        <WeatherForcast coord={weatherData.coord} unit={unitClass.unit} />
       </div>
     );
   } else {
