@@ -25,11 +25,11 @@ export default function WeatherForcast(props) {
   if (loaded) {
     return (
       <div className="WeatherForcast">
-        <div className="row">
+        <div className="row d-flex justify-content-evenly">
           {forcastData.map(function (dailyForcast, index) {
             if (index > 0 && index < 6) {
               return (
-                <div className="col-sm" key={index}>
+                <div className="col-2" key={index}>
                   <ForcastDay data={dailyForcast} />
                 </div>
               );

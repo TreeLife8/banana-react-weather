@@ -123,9 +123,9 @@ export default function Search(props) {
             </div>
           </form>
           <div className="col-3 form-search">
-            <a href="/" className="current-btn" onClick={searchCurrentLocation}>
-              <button className="btn btn-control">Current</button>
-            </a>
+            <button onClick={searchCurrentLocation} className="btn btn-control">
+              Current
+            </button>
           </div>
           <div className="col-2 clearfix">
             <WeatherIcon code={weatherData.icon} />
