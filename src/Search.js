@@ -19,7 +19,7 @@ export default function Search(props) {
     unit: "metric",
   });
   const [units, setUnits] = useState({ speed: "km/h", temp: "C" });
-  const [coord, setCoord] = useState(null);
+  // const [coord, setCoord] = useState(null);
 
   function search(unit) {
     let apiKey = `2f5ed0987c11d8af0a71b4472673fde7`;
@@ -36,18 +36,22 @@ export default function Search(props) {
     navigator.geolocation.getCurrentPosition(currentPosition);
   }
   function currentPosition(position) {
-    setCoord({
-      lat: position.coords.latitude,
-      lon: position.coords.longitude,
-    });
-    searchCurrentWeather();
-    console.log(coord.lat, coord.lon);
+    // setCoord({
+    //   lat: position.coords.latitude,
+    //   lon: position.coords.longitude,
+    // });
+    let lat = position.coords.latitude;
+    let lon = position.coords.longitude;
+    searchCurrentWeather(lat, lon);
+    // console.log(coord.lat, coord.lon);
+    console.log(lat, lon);
   }
 
-  function searchCurrentWeather() {
+  function searchCurrentWeather(lat, lon) {
     let unit = `metric`;
     let apiKey = `3fb188379e6ffcf616e7cdbd010c6434`;
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${coord.lat}&lon=${coord.lon}&units=${unit}&appid=${apiKey}`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=${unit}&appid=${apiKey}`;
+    // let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${coord.lat}&lon=${coord.lon}&units=${unit}&appid=${apiKey}`;
     axios.get(apiUrl).then(handleResponse);
   }
 
