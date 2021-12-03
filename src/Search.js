@@ -19,7 +19,6 @@ export default function Search(props) {
     unit: "metric",
   });
   const [units, setUnits] = useState({ speed: "km/h", temp: "C" });
-  // const [coord, setCoord] = useState(null);
 
   function search(unit) {
     let apiKey = `2f5ed0987c11d8af0a71b4472673fde7`;
@@ -36,14 +35,9 @@ export default function Search(props) {
     navigator.geolocation.getCurrentPosition(currentPosition);
   }
   function currentPosition(position) {
-    // setCoord({
-    //   lat: position.coords.latitude,
-    //   lon: position.coords.longitude,
-    // });
     let lat = position.coords.latitude;
     let lon = position.coords.longitude;
     searchCurrentWeather(lat, lon);
-    // console.log(coord.lat, coord.lon);
     console.log(lat, lon);
   }
 
@@ -51,7 +45,6 @@ export default function Search(props) {
     let unit = `metric`;
     let apiKey = `3fb188379e6ffcf616e7cdbd010c6434`;
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=${unit}&appid=${apiKey}`;
-    // let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${coord.lat}&lon=${coord.lon}&units=${unit}&appid=${apiKey}`;
     axios.get(apiUrl).then(handleResponse);
   }
 
@@ -173,17 +166,14 @@ export default function Search(props) {
   } else {
     search("metric");
     return (
-      <div className="container row">
-        <div className="col-6"></div>
-        <div className="col-4">
-          <Loader
-            type="Puff"
-            color="#757a79"
-            height={200}
-            width={200}
-            timeout={4000}
-          />
-        </div>
+      <div className="d-flex justify-content-center align-items-center">
+        <Loader
+          type="Rings"
+          color="#5C636A"
+          height={100}
+          width={100}
+          timeout={4000}
+        />
       </div>
     );
   }
