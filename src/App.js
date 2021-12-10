@@ -18,7 +18,7 @@ export default function App() {
         </a>{" "}
         and is{" "}
         <a
-          href="https://github.com/TreeLife8/banana-react-weather"
+          href="https://github.com/regina-maher/banana-react-weather"
           target="_blank"
           rel="noreferrer"
         >
